@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaDiscord } from "react-icons/fa";
 import { SiVrchat, SiKofi } from "react-icons/si";
-import { Mail, Sprout, Droplets, Ban, Scale, Bug, Flower2, Wheat, Music2, Circle, Palmtree, Sun, Droplet, Coffee, Heart } from "lucide-react";
+import { Mail, Sprout, Ban, Scale, Bug, Flower2, Wheat, Music2, Circle, Palmtree, Coffee, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
@@ -48,39 +48,32 @@ export default function Home() {
           {/* Water Wholesome Seeds */}
           <Card>
             <CardHeader>
-              <CardTitle className="text-xl sm:text-2xl"><Sprout className="w-5 h-5" /><Droplets className="w-5 h-5" /> Water Wholesome Seeds <Sprout className="w-5 h-5" /><Droplets className="w-5 h-5" /></CardTitle>
+              <CardTitle className="text-xl sm:text-2xl"><Sprout className="w-5 h-5 inline mr-2" />Water Wholesome Seeds</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4 text-left text-sm sm:text-base">
+            <CardContent className="pt-6 space-y-4 text-left text-sm sm:text-base">
               <div className="space-y-2">
-                <p><span className="font-bold"><Flower2 className="w-4 h-4 inline" /> Practice Loving-Kindness <Flower2 className="w-4 h-4 inline" /></span> Speak and act with tenderness and consideration.</p>
+                <p><span className="font-bold"><Flower2 className="w-4 h-4 inline mr-1" />Practice Loving-Kindness</span> Speak and act with tenderness and consideration.</p>
               </div>
               <div className="space-y-2">
-                <p><span className="font-bold"><Flower2 className="w-4 h-4 inline" /> Nurture Joy and Laughter <Flower2 className="w-4 h-4 inline" /></span> Joy is not a luxury, it&apos;s a source of resilience and connection. Enjoy small moments and celebrate each other. Let joy be a reminder of what makes life meaningful and worth showing up for.</p>
+                <p><span className="font-bold"><Flower2 className="w-4 h-4 inline mr-1" />Nurture Joy and Laughter</span> Joy is not a luxury, it&apos;s a source of resilience and connection. Enjoy small moments and celebrate each other. Let joy be a reminder of what makes life meaningful and worth showing up for.</p>
               </div>
               <div className="space-y-2">
-                <p><span className="font-bold"><Flower2 className="w-4 h-4 inline" /> Be open-minded <Flower2 className="w-4 h-4 inline" /></span> Ask rather than assume. Everyone comes from unique backgrounds and life experiences.</p>
+                <p><span className="font-bold"><Flower2 className="w-4 h-4 inline mr-1" />Be open-minded</span> Ask rather than assume. Everyone comes from unique backgrounds and life experiences.</p>
               </div>
               <div className="space-y-2">
-                <p><span className="font-bold"><Flower2 className="w-4 h-4 inline" /> Share the Space and Invite Others In <Flower2 className="w-4 h-4 inline" /></span> Be mindful of the amount of space you&apos;re taking verbally, emotionally, and energetically. Practice inviting others into the conversation by asking &quot;What do you think?&quot; or &quot;What&apos;s on your mind?&quot;</p>
+                <p><span className="font-bold"><Flower2 className="w-4 h-4 inline mr-1" />Share the Space and Invite Others In</span> Be mindful of the amount of space you&apos;re taking verbally, emotionally, and energetically. Practice inviting others into the conversation by asking &quot;What do you think?&quot; or &quot;What&apos;s on your mind?&quot;</p>
               </div>
               <div className="space-y-2">
-                <p><span className="font-bold"><Flower2 className="w-4 h-4 inline" /> Practice Accountability <Flower2 className="w-4 h-4 inline" /></span> Take honest responsibility for your actions and their impact, make amends when needed, and commit to doing better.</p>
+                <p><span className="font-bold"><Flower2 className="w-4 h-4 inline mr-1" />Practice Accountability</span> Take honest responsibility for your actions and their impact, make amends when needed, and commit to doing better.</p>
               </div>
               <div className="space-y-2">
-                <p><span className="font-bold"><Flower2 className="w-4 h-4 inline" /> Care for Yourself <Flower2 className="w-4 h-4 inline" /></span> Make tending to your needs a priority. There&apos;s no pressure to stay beyond what feels right. Feel comfortable leaving any event at any time for any reason. Let a facilitator know if you need accommodations or support.</p>
+                <p><span className="font-bold"><Flower2 className="w-4 h-4 inline mr-1" />Care for Yourself</span> Make tending to your needs a priority. There&apos;s no pressure to stay beyond what feels right. Feel comfortable leaving any event at any time for any reason. Let a facilitator know if you need accommodations or support.</p>
               </div>
               <div className="space-y-2">
-                <p><span className="font-bold"><Flower2 className="w-4 h-4 inline" /> Act With Courage <Flower2 className="w-4 h-4 inline" /></span> Practice bravery. It takes courage to be vulnerable and try new things. Be willing to engage with the present moment even when it&apos;s uncomfortable.</p>
+                <p><span className="font-bold"><Flower2 className="w-4 h-4 inline mr-1" />Act With Courage</span> Practice bravery. It takes courage to be vulnerable and try new things. Be willing to engage with the present moment even when it&apos;s uncomfortable.</p>
               </div>
               <div className="space-y-2">
-                <p><span className="font-bold"><Flower2 className="w-4 h-4 inline" /> Remember, You Are Already Enough <Flower2 className="w-4 h-4 inline" /></span> You are not a project to be fixed or optimized. Who you are right now is already whole and worthy. Growth can happen, but it doesn&apos;t make you more deserving of love.</p>
-              </div>
-              <div className="space-y-2">
-                <p><span className="font-bold"><Flower2 className="w-4 h-4 inline" /> Abide by Discord&apos;s Terms of Service and Community Guidelines <Flower2 className="w-4 h-4 inline" /></span></p>
-                <div className="ml-4">
-                  <p><a href="#" className="text-blue-600 hover:underline">Terms of Service</a></p>
-                  <p><a href="#" className="text-blue-600 hover:underline">Community Guidelines</a></p>
-                </div>
+                <p><span className="font-bold"><Flower2 className="w-4 h-4 inline mr-1" />Remember, You Are Already Enough</span> You are not a project to be fixed or optimized. Who you are right now is already whole and worthy. Growth can happen, but it doesn&apos;t make you more deserving of love.</p>
               </div>
             </CardContent>
           </Card>
@@ -88,12 +81,12 @@ export default function Home() {
           {/* Do Not Water Unwholesome Seeds */}
           <Card>
             <CardHeader>
-              <CardTitle className="text-xl sm:text-2xl"><Ban className="w-5 h-5" /> Do Not Water Unwholesome Seeds <Ban className="w-5 h-5" /></CardTitle>
+              <CardTitle className="text-xl sm:text-2xl"><Ban className="w-5 h-5 inline mr-2" />Do Not Water Unwholesome Seeds</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4 text-left text-sm sm:text-base">
+            <CardContent className="pt-6 space-y-4 text-left text-sm sm:text-base">
               <p className="font-medium">Please refrain from the following:</p>
               <ul className="space-y-3 ml-4">
-                <li>• <span className="font-bold">Using this community in place of therapy.</span> We are not a substitute for professional mental health care. You are responsible for your health and well-being. Please refer to our resource library or reach out at #🎟️-open-a-support-ticket if you would like help from a facilitator. Note that we are laypeople and non-therapists.</li>
+                <li>• <span className="font-bold">Using this community in place of therapy.</span> We are not a substitute for professional mental health care. You are responsible for your health and well-being. Please refer to our resource library or reach out at <span className="font-bold">open-a-support-ticket</span> channel on discord if you would like help from a facilitator. Note that we are laypeople and non-therapists.</li>
                 <li>• <span className="font-bold">NSFW content</span> including harmful sexual material and triggering specifics (ie substances, self-harm behaviors, etc).</li>
                 <li>• <span className="font-bold">Harassment</span> of any kind (verbal, sexual, or psychological).</li>
                 <li>• <span className="font-bold">Discrimination</span> including but not limited to racism, nationalism, anti-immigrant rhetoric, sexism, homophobia, transphobia, xenophobia, fatphobia, antisemitism, ableism, or classism.</li>
@@ -110,24 +103,24 @@ export default function Home() {
           {/* Consequences */}
           <Card>
             <CardHeader>
-              <CardTitle className="text-xl sm:text-2xl">⚖️ Consequences ⚖️</CardTitle>
+              <CardTitle className="text-xl sm:text-2xl"><Scale className="w-5 h-5 inline mr-2" />Consequences</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-3 text-left text-sm sm:text-base">
+            <CardContent className="pt-6 space-y-3 text-left text-sm sm:text-base">
               <p>Our approach is firm yet fair:</p>
               <p>✋ Some violations may result in a gentle reminder or redirect.</p>
               <p>⚠️ Others may lead to a warning, temporary mute, or removal depending on the severity and impact.</p>
               <p>🔨 Excessive harmful behavior (ie scamming, soliciting, hate speech, harassment, threatening or violent language) may result in an immediate ban.</p>
-              <p>❓ If you&apos;re unsure whether something is appropriate ➡️ #🎟️-open-a-support-ticket</p>
+              <p>❓ If you&apos;re unsure whether something is appropriate ➡️ <span className="font-bold">open-a-support-ticket</span> channel on discord</p>
             </CardContent>
           </Card>
 
           {/* Support Section */}
           <Card>
             <CardHeader>
-              <CardTitle className="text-xl sm:text-2xl">📩 Need Support or Have a Concern? 📩</CardTitle>
+              <CardTitle className="text-xl sm:text-2xl"><Mail className="w-5 h-5 inline mr-2" />Need Support or Have a Concern?</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4 text-left text-sm sm:text-base">
-              <p>Please #🎟️-open-a-support-ticket if:</p>
+            <CardContent className="pt-6 space-y-4 text-left text-sm sm:text-base">
+              <p>Please <span className="font-bold">open-a-support-ticket</span> channel on discord if:</p>
               <ul className="ml-4 space-y-1">
                 <li>• You&apos;re feeling unsafe or overwhelmed</li>
                 <li>• You need accommodations</li>
@@ -144,9 +137,9 @@ export default function Home() {
           {/* Thank You Section */}
           <Card>
             <CardHeader>
-              <CardTitle className="text-xl sm:text-2xl">🦗 Thank You For Having Grace 🦗</CardTitle>
+              <CardTitle className="text-xl sm:text-2xl"><Bug className="w-5 h-5 inline mr-2" />Thank You For Having Grace</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-3 text-center">
+            <CardContent className="pt-6 space-y-3 text-left text-sm sm:text-base">
               <p>We are all learning. It&apos;s okay to make mistakes. It&apos;s okay to uphold your boundaries with consequences.</p>
               <p>We are all doing the best we can in the situation we are in with the current understanding, resources, and tools we have.</p>
               <p className="font-bold">Thank you for your care and willingness to co-create this mindful and insightful community.</p>
@@ -164,9 +157,9 @@ export default function Home() {
             className="w-full h-auto rounded-lg select-none mb-8"
           />
           <Card>
-            <CardContent className="pt-6 space-y-4 text-left text-sm sm:text-base">
+            <CardContent className="space-y-4 text-left text-sm sm:text-base">
               <p>Our events are warm, safe, and accessible. New members are always welcome. No previous experience is required for any events. Some events move to a private instance once they begin, so be sure to arrive on time!</p>
-              <p>See #🗓️-events for the full schedule of events and information.</p>
+              <p>See <span className="font-bold">events</span> channel on discord for the full schedule of events and information.</p>
 
               <div className="mt-6">
                 <h3 className="font-bold text-base sm:text-lg mb-3">Peer-Led Event Categories</h3>
@@ -174,18 +167,18 @@ export default function Home() {
 
                 <div className="space-y-4">
                   <div>
-                    <p className="font-bold">💃 Joyful Movement Invitations</p>
+                    <p className="font-bold"><Music2 className="w-4 h-4 inline mr-1" />Joyful Movement Invitations</p>
                     <p className="ml-4">Spontaneous invitations to dance, stretch, or move with joy. Anyone can post and join. No need to lead or plan. Just invite folks along with you to whatever joyful movement you are up to!</p>
-                    <p className="ml-4 text-sm text-muted-foreground">➤ Check the #joyful-movement-invites channel and pinned message for more info.</p>
+                    <p className="ml-4 text-sm text-muted-foreground">➤ Check the <span className="font-bold">joyful-movement-invites</span> channel on discord and pinned message for more info.</p>
                   </div>
 
                   <div>
-                    <p className="font-bold">☸️ Dharma Talk Watch Parties</p>
+                    <p className="font-bold"><Circle className="w-4 h-4 inline mr-1" />Dharma Talk Watch Parties</p>
                     <p className="ml-4">Open a group instance to watch Dharma Talk youtube videos together in VRChat. Hosted by representatives.</p>
                   </div>
 
                   <div>
-                    <p className="font-bold">🏖️ Casual Hang Out</p>
+                    <p className="font-bold"><Palmtree className="w-4 h-4 inline mr-1" />Casual Hang Out</p>
                     <p className="ml-4">Open a group instance to host a casual hang out together in VRChat. Hosted by representatives.</p>
                   </div>
                 </div>
@@ -204,10 +197,10 @@ export default function Home() {
             className="w-full h-auto rounded-lg select-none mb-8"
           />
           <Card>
-            <CardContent className="pt-6 space-y-4 text-left text-sm sm:text-base">
+            <CardContent className="space-y-4 text-left text-sm sm:text-base">
               <p>Our facilitators host our core events and run our community. They have shown care, integrity, and a genuine wish to support others. New facilitators are invited to join based on their application and engagement with the community. All current facilitators must unanimously agree to invite new facilitators.</p>
 
-              <p>🌱 If you feel your values align with our community and you are moved to support others, whether through hosting or other skills, you are warmly invited to apply.</p>
+              <p><Sprout className="w-4 h-4 inline mr-1" />If you feel your values align with our community and you are moved to support others, whether through hosting or other skills, you are warmly invited to apply.</p>
 
               <p>We look for those who help water the wholesome seeds of our community: mindfulness, insight, and joy. We don&apos;t expect perfection, only a sincere commitment to doing your best by this community.</p>
 
@@ -215,7 +208,7 @@ export default function Home() {
 
               <p>🌿 Facilitators are here as a source of support and are happy to listen or answer questions.</p>
 
-              <p>📝 Applications are open in #📨-facilitator-applications</p>
+              <p>📝 Applications are open in <span className="font-bold">facilitator-applications</span> channel on discord</p>
             </CardContent>
           </Card>
         </section>
@@ -230,25 +223,25 @@ export default function Home() {
             className="w-full h-auto rounded-lg select-none mb-8"
           />
           <Card>
-            <CardContent className="pt-6 space-y-4 text-left text-sm sm:text-base">
+            <CardContent className="space-y-4 text-left text-sm sm:text-base">
               <p>Representatives are dear friends in our community whose presence and practice reflect a deep commitment to nurturing mindfulness and compassion in themselves and others. Facilitators unanimously decide that these individuals can be trusted to represent Mindful Insight VR.</p>
 
               <div className="mt-4">
-                <h4 className="font-bold text-sm sm:text-base">🌱 How to Become a Representative 🌱</h4>
+                <h4 className="font-bold text-sm sm:text-base"><Sprout className="w-4 h-4 inline mr-1" />How to Become a Representative</h4>
                 <p className="mt-2">This role is open to everyone. After spending time at our events, you may be interested in becoming more deeply involved. If you resonate with our practice and wish to support us and represent us in the wider world, we invite you to step forward.</p>
               </div>
 
               <div className="mt-4">
-                <h4 className="font-bold text-sm sm:text-base">🌾 Representative Access 🌾</h4>
+                <h4 className="font-bold text-sm sm:text-base"><Wheat className="w-4 h-4 inline mr-1" />Representative Access</h4>
                 <ul className="mt-2 space-y-1">
-                  <li>🌱 ~ Ability to open Mindful Insight VR group instances in VRChat</li>
-                  <li>🌱 ~ Host certain events such as Dharma Talk Watch Parties and Casual Hang Outs</li>
-                  <li>🌱 ~ A &quot;Representative&quot; role in our discord</li>
-                  <li>🌱 ~ Access to #representatives discord channel</li>
+                  <li><Sprout className="w-3 h-3 inline mr-1" />Ability to open Mindful Insight VR group instances in VRChat</li>
+                  <li><Sprout className="w-3 h-3 inline mr-1" />Host certain events such as Dharma Talk Watch Parties and Casual Hang Outs</li>
+                  <li><Sprout className="w-3 h-3 inline mr-1" />A &quot;Representative&quot; role in our discord</li>
+                  <li><Sprout className="w-3 h-3 inline mr-1" />Access to <span className="font-bold">representatives</span> channel on discord</li>
                 </ul>
               </div>
 
-              <p className="mt-4">If you&apos;d like to learn more or express your interest, kindly open a support ticket in #🎟️-open-a-support-ticket</p>
+              <p className="mt-4">If you&apos;d like to learn more or express your interest, kindly open a support ticket in <span className="font-bold">open-a-support-ticket</span> channel on discord</p>
             </CardContent>
           </Card>
         </section>
@@ -263,8 +256,8 @@ export default function Home() {
             className="w-full h-auto rounded-lg select-none mb-8"
           />
           <Card>
-            <CardContent className="pt-6 space-y-4 text-left text-sm sm:text-base">
-              <p className="font-bold">If you find value in what we do, please help us grow ☀️🌱💧!</p>
+            <CardContent className="space-y-4 text-left text-sm sm:text-base">
+              <p className="font-bold">If you find value in what we do, please help us grow!</p>
 
               <p>Would you please join our Mindful Insight VR VRChat Group and invite others to join who might benefit from this community?</p>
 
@@ -279,7 +272,7 @@ export default function Home() {
               </div>
 
               <div className="space-y-4">
-                <p>☕️Would you please consider donating to our Ko-Fi? ☕️</p>
+                <p><Coffee className="w-4 h-4 inline mr-1" />Would you please consider donating to our Ko-Fi?</p>
 
                 <div className="flex justify-center">
                   <Button asChild size="lg" className="gap-2">
@@ -294,9 +287,9 @@ export default function Home() {
                   </Button>
                 </div>
 
-                <p>💞 Donations help sustain and grow our community by supporting both our facilitators and ongoing improvements. When you contribute, you&apos;re directly supporting the people who offer their time and energy to make this space possible.</p>
+                <p><Heart className="w-4 h-4 inline mr-1" />Donations help sustain and grow our community by supporting both our facilitators and ongoing improvements. When you contribute, you&apos;re directly supporting the people who offer their time and energy to make this space possible.</p>
 
-                <p className="font-bold text-center">From the bottom of our hearts, thank you for anything you are able to contribute comfortably. 🙏</p>
+                <p className="font-bold">From the bottom of our hearts, thank you for anything you are able to contribute comfortably.</p>
               </div>
             </CardContent>
           </Card>
@@ -306,10 +299,10 @@ export default function Home() {
         <section id="contacts" className="space-y-8">
           <Card>
             <CardHeader>
-              <CardTitle className="text-xl sm:text-2xl text-center">Contact Us</CardTitle>
+              <CardTitle className="text-xl sm:text-2xl">Contact Us</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-6">
-              <p className="text-center text-sm sm:text-base">Connect with our community through multiple platforms</p>
+            <CardContent className="pt-6 space-y-6">
+              <p className="text-sm sm:text-base">Connect with our community through multiple platforms</p>
 
               <div className="grid gap-4 md:grid-cols-3">
                 <Link
@@ -345,7 +338,7 @@ export default function Home() {
               </div>
 
               <div className="pt-4">
-                <p className="text-center text-sm text-muted-foreground">
+                <p className="text-sm text-muted-foreground">
                   We welcome your questions, feedback, and participation. Choose the platform that works best for you!
                 </p>
               </div>

@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import { Menu, Mail } from "lucide-react";
 import { FaDiscord } from "react-icons/fa";
 import { SiVrchat, SiKofi } from "react-icons/si";
 import { motion, AnimatePresence } from "motion/react";
@@ -71,9 +71,9 @@ export function Header() {
       // Set scrolling lock
       setIsScrolling(true);
       setActiveSection(href.substring(1));
-      
+
       element.scrollIntoView({ behavior: "smooth" });
-      
+
       // Clear scrolling lock after animation completes
       if (scrollTimeoutRef.current) {
         clearTimeout(scrollTimeoutRef.current);
@@ -123,7 +123,6 @@ export function Header() {
         {/* Social Icons and Theme Toggle */}
         <div className="ml-auto flex items-center space-x-4">
           <div className="hidden md:flex items-center space-x-4">
-            <ThemeToggle />
             <Link
               href={DISCORD_LINK}
               target="_blank"
@@ -134,15 +133,6 @@ export function Header() {
               <FaDiscord size={28} />
             </Link>
             <Link
-              href={VRCHAT_GROUP_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors hover:text-primary"
-              aria-label="Join our VRChat group"
-            >
-              <SiVrchat size={28} />
-            </Link>
-            <Link
               href={KOFI_LINK}
               target="_blank"
               rel="noopener noreferrer"
@@ -151,6 +141,20 @@ export function Header() {
             >
               <SiKofi size={28} />
             </Link>
+            <Link
+              href={VRCHAT_GROUP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-primary"
+              aria-label="Join our VRChat group"
+            >
+              <SiVrchat size={34} />
+            </Link>
+
+            <div className="-mr-4">
+
+              <ThemeToggle />
+            </div>
           </div>
 
           {/* Mobile Menu */}
@@ -184,11 +188,10 @@ export function Header() {
                         key={item.href}
                         href={item.href}
                         onClick={(e) => scrollToSection(e, item.href)}
-                        className={`block pl-4 py-2 text-sm font-medium transition-colors hover:text-primary ${
-                          activeSection === item.href.substring(1) 
-                            ? "text-primary bg-accent" 
+                        className={`block pl-4 py-2 text-sm font-medium transition-colors hover:text-primary ${activeSection === item.href.substring(1)
+                            ? "text-primary bg-accent"
                             : ""
-                        }`}
+                          }`}
                       >
                         {item.label}
                       </a>
@@ -220,7 +223,7 @@ export function Header() {
                         href={`mailto:${EMAIL}`}
                         className="flex items-center space-x-3 text-sm transition-colors hover:text-primary"
                       >
-                        <span className="text-xl">✉️</span>
+                        <Mail className="w-5 h-5" />
                         <span>{EMAIL}</span>
                       </a>
                       <a
