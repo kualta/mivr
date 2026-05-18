@@ -128,9 +128,9 @@ const events = [
   },
   {
     Icon: Feather,
-    when: "Inquiry",
+    when: "Drawing practice · on Discord",
     title: "Zen Untangle",
-    body: "A reflective sitting around a knot — a question, a stuck place — and what loosens when we look together.",
+    body: "A meditative drawing practice we host on Discord. Loosen the lines, follow the pen, and see what comes through.",
     core: true,
   },
   {
