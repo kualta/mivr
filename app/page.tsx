@@ -1,351 +1,701 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
-import Link from "next/link";
+import {
+  ArrowRight,
+  Calendar,
+  Sprout,
+  Ban,
+  Flower2,
+  Leaf,
+  Headphones,
+  Handshake,
+  Feather,
+  Circle,
+  Wheat,
+  Users,
+  Mail,
+  Coffee,
+  Heart,
+} from "lucide-react";
 import { FaDiscord } from "react-icons/fa";
-import { SiVrchat, SiKofi } from "react-icons/si";
-import { Mail, Sprout, Ban, Scale, Bug, Flower2, Wheat, Music2, Circle, Palmtree, Coffee, Heart } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { SiVrchat } from "react-icons/si";
+
+const DISCORD_LINK = "https://discord.gg/BZFXSmAesk";
+const VRCHAT_GROUP_LINK =
+  "https://vrchat.com/home/group/grp_7df82573-ed3d-424b-8c95-e5271559fa4e";
+const KOFI_LINK = "https://ko-fi.com/mindfulinsightvr";
+const EMAIL = "mindfulinsightvr@gmail.com";
+
+const wholesomeSeeds = [
+  {
+    title: "Practice loving-kindness",
+    body: "Speak and act with tenderness and consideration.",
+  },
+  {
+    title: "Nurture joy and laughter",
+    body: "Joy is not a luxury — it's a source of resilience and connection. Let it remind you what's worth showing up for.",
+  },
+  {
+    title: "Be open-minded",
+    body: "Ask rather than assume. Everyone comes from a unique background.",
+  },
+  {
+    title: "Share the space, invite others in",
+    body: "Notice how much air you're taking. Invite quieter voices in with a “What do you think?”",
+  },
+  {
+    title: "Practice accountability",
+    body: "Take honest responsibility for your impact. Make amends. Commit to doing better.",
+  },
+  {
+    title: "Care for yourself",
+    body: "Tend your own needs first. Feel comfortable leaving any event at any time, for any reason.",
+  },
+  {
+    title: "Act with courage",
+    body: "It takes bravery to be vulnerable and try new things. Be willing to stay present, even when it's uncomfortable.",
+  },
+  {
+    title: "You are already enough",
+    body: "You are not a project to be fixed. Who you are right now is whole and worthy of love.",
+  },
+];
+
+const unwholesomeSeeds = [
+  {
+    title: "Using community in place of therapy",
+    body: (
+      <>
+        We are laypeople, not a substitute for professional care. See{" "}
+        <strong>#resource-library</strong> or open a support ticket.
+      </>
+    ),
+  },
+  {
+    title: "NSFW or triggering specifics",
+    body: "Harmful sexual material, substance specifics, self-harm details, etc.",
+  },
+  {
+    title: "Harassment of any kind",
+    body: "Verbal, sexual, or psychological — never welcome here.",
+  },
+  {
+    title: "Discrimination",
+    body: "Including racism, sexism, queerphobia, xenophobia, fatphobia, antisemitism, ableism, classism.",
+  },
+  {
+    title: "Sharing what isn't yours to share",
+    body: "What is said in confidential spaces stays there without consent.",
+  },
+  {
+    title: "Diet culture & unsolicited advice",
+    body: "No moralizing food, no implying certain bodies are more worthy.",
+  },
+  {
+    title: "Promoting intoxicants or psychedelics",
+    body: "Including framing them as necessary for insight or healing.",
+  },
+  {
+    title: "Forcing beliefs or pseudoscience",
+    body: "No pressuring others; no esoteric teachings framed as absolute truth.",
+  },
+  {
+    title: "Unsolicited promotion",
+    body: "Unless approved by a facilitator.",
+  },
+];
+
+const events = [
+  {
+    Icon: Leaf,
+    when: "Guided sit",
+    title: "Guided Meditation with SaladCup",
+    body: "A gently guided sit led by SaladCup. Settle in, follow the voice, and let the practice carry you.",
+    core: true,
+  },
+  {
+    Icon: Headphones,
+    when: "Listening practice",
+    title: "Deep Listening Practice",
+    body: "An invitation to truly hear — and be heard. We practice receiving each other without fixing or interpreting.",
+    core: true,
+  },
+  {
+    Icon: Handshake,
+    when: "Communication",
+    title: "Mindful Communication",
+    body: "A small-group practice in speaking and listening with care. Bring what's on your heart; meet what's on theirs.",
+    core: true,
+  },
+  {
+    Icon: Feather,
+    when: "Inquiry",
+    title: "Zen Untangle",
+    body: "A reflective sitting around a knot — a question, a stuck place — and what loosens when we look together.",
+    core: true,
+  },
+  {
+    Icon: Circle,
+    when: "Watch party",
+    title: "Dharma Talk Watch Party",
+    body: "An open group instance to watch dharma talks together in VRChat. Hosted by representatives.",
+    core: false,
+  },
+];
 
 export default function Home() {
   return (
-    <div className="container mx-auto py-6 px-4 sm:py-10 max-w-4xl">
-      <div className="space-y-32 sm:space-y-48 text-center">
-        {/* Hero Section */}
-        <section id="welcome" className="space-y-8 my-16 sm:my-32 sm:mt-20">
-          <Image
-            src="/MIVR_Welcome_Banners_1.8.png"
-            alt="Mindful Insight VR Welcome Banner"
-            width={1200}
-            height={400}
-            className="w-full h-auto rounded-lg select-none mb-12"
-            priority
+    <>
+      {/* HERO */}
+      <section id="welcome" className="hero" data-screen-label="Hero">
+        <svg className="hero-enso" viewBox="0 0 600 600" aria-hidden="true">
+          <defs>
+            <linearGradient id="enso-grad" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0" stopColor="#7a8857" />
+              <stop offset="0.45" stopColor="#c89c4a" />
+              <stop offset="1" stopColor="#e08a52" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M300 70 C 160 70, 70 175, 70 305 C 70 440, 175 540, 305 530 C 425 521, 520 430, 525 305 C 528 220, 488 145, 410 110"
+            fill="none"
+            stroke="url(#enso-grad)"
+            strokeWidth="36"
+            strokeLinecap="round"
           />
-          <div className="space-y-6">
-            <h1 className="text-2xl sm:text-3xl font-bold leading-tight">
-              Virtual spaces for mindfulness, insight, and joy
+          <circle cx="118" cy="365" r="6" fill="#c89c4a" />
+          <circle cx="98" cy="385" r="3" fill="#9b803a" />
+          <circle cx="140" cy="395" r="4" fill="#a98549" />
+        </svg>
+
+        <div className="wrap hero-inner">
+          <div className="hero-copy">
+            <h1>
+              Virtual spaces for <em>mindfulness,</em>{" "}
+              <span className="ink">insight,</span> and joy.
             </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-              A secular Buddhist community where meditation meets heartfelt conversation. Your presence is a gift.
+            <p className="lede">
+              A secular Buddhist community where meditation meets heartfelt
+              conversation. We gather for quiet sits, dharma talks, peer support,
+              and casual hangs — all from inside VR.
+            </p>
+            <p className="gift">Your presence is a gift.</p>
+            <div className="hero-actions">
+              <a
+                className="btn btn-primary btn-lg"
+                href={DISCORD_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaDiscord className="ic-fill" />
+                Join the Discord
+              </a>
+              <a className="btn btn-outline btn-lg" href="#rhythm">
+                <Calendar className="ic" />
+                See our practice
+              </a>
+            </div>
+            <div className="hero-meta">
+              <span>🌿 New here? Just show up — no experience needed.</span>
+            </div>
+          </div>
+
+          <div className="hero-banner" aria-hidden="true">
+            <Image
+              src="/MIVR_Welcome_Banners_1.8.png"
+              alt="Welcome to Mindful Insight VR"
+              width={1200}
+              height={400}
+              priority
+            />
+            <div className="quote">
+              Practice together. Show up as you are.
+            </div>
+          </div>
+        </div>
+
+        <div className="wrap">
+          <div className="hero-manifesto">
+            <p>
+              We meet inside <span className="serif-italic">VRChat</span>.
+              <br />
+              Desktop, mobile, or any headset works.
+            </p>
+            <span className="manifesto-sep" aria-hidden="true"></span>
+            <p className="muted">
+              No experience needed. New folks are always welcome.
             </p>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Guidelines Section */}
-        <section id="guidelines" className="space-y-8">
-          <Image
-            src="/MIVR_Guidelines_Rules_Banner_1.0.png"
-            alt="Mindful Insight VR Guidelines and Rules Banner"
-            width={1200}
-            height={400}
-            className="w-full h-auto rounded-lg select-none mb-8"
-          />
-          <div className="space-y-4">
-            <p className="text-base sm:text-lg font-medium">
-              By participating in this server and community, you agree to the following guidelines and rules:
+      {/* PRACTICE */}
+      <section id="rhythm" className="sec rhythm" data-screen-label="Practice">
+        <div className="wrap">
+          <div className="sec-head">
+            <span className="eyebrow">Our practice</span>
+            <h2>
+              What we <em>gather</em> for.
+            </h2>
+            <p className="lede">
+              Our events are warm, safe, and accessible. No previous experience
+              is required. Some move to a private instance once they begin, so
+              be sure to arrive on time.
             </p>
           </div>
 
-          {/* Water Wholesome Seeds */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-xl sm:text-2xl"><Sprout className="w-5 h-5 inline mr-2" />Water Wholesome Seeds</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-6 space-y-4 text-left text-sm sm:text-base">
-              <div className="space-y-2">
-                <p><span className="font-bold"><Flower2 className="w-4 h-4 inline mr-1" />Practice Loving-Kindness</span> Speak and act with tenderness and consideration.</p>
-              </div>
-              <div className="space-y-2">
-                <p><span className="font-bold"><Flower2 className="w-4 h-4 inline mr-1" />Nurture Joy and Laughter</span> Joy is not a luxury, it&apos;s a source of resilience and connection. Enjoy small moments and celebrate each other. Let joy be a reminder of what makes life meaningful and worth showing up for.</p>
-              </div>
-              <div className="space-y-2">
-                <p><span className="font-bold"><Flower2 className="w-4 h-4 inline mr-1" />Be open-minded</span> Ask rather than assume. Everyone comes from unique backgrounds and life experiences.</p>
-              </div>
-              <div className="space-y-2">
-                <p><span className="font-bold"><Flower2 className="w-4 h-4 inline mr-1" />Share the Space and Invite Others In</span> Be mindful of the amount of space you&apos;re taking verbally, emotionally, and energetically. Practice inviting others into the conversation by asking &quot;What do you think?&quot; or &quot;What&apos;s on your mind?&quot;</p>
-              </div>
-              <div className="space-y-2">
-                <p><span className="font-bold"><Flower2 className="w-4 h-4 inline mr-1" />Practice Accountability</span> Take honest responsibility for your actions and their impact, make amends when needed, and commit to doing better.</p>
-              </div>
-              <div className="space-y-2">
-                <p><span className="font-bold"><Flower2 className="w-4 h-4 inline mr-1" />Care for Yourself</span> Make tending to your needs a priority. There&apos;s no pressure to stay beyond what feels right. Feel comfortable leaving any event at any time for any reason. Let a facilitator know if you need accommodations or support.</p>
-              </div>
-              <div className="space-y-2">
-                <p><span className="font-bold"><Flower2 className="w-4 h-4 inline mr-1" />Act With Courage</span> Practice bravery. It takes courage to be vulnerable and try new things. Be willing to engage with the present moment even when it&apos;s uncomfortable.</p>
-              </div>
-              <div className="space-y-2">
-                <p><span className="font-bold"><Flower2 className="w-4 h-4 inline mr-1" />Remember, You Are Already Enough</span> You are not a project to be fixed or optimized. Who you are right now is already whole and worthy. Growth can happen, but it doesn&apos;t make you more deserving of love.</p>
-              </div>
-            </CardContent>
-          </Card>
+          <div className="schedule">
+            {events.map(({ Icon, when, title, body, core }) => (
+              <article
+                key={title}
+                className={core ? "event coreEvent" : "event"}
+              >
+                <div className="glyph">
+                  <Icon className="ic" />
+                </div>
+                <div className="when">{when}</div>
+                <h3>{title}</h3>
+                <p>{body}</p>
+              </article>
+            ))}
+          </div>
 
-          {/* Do Not Water Unwholesome Seeds */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-xl sm:text-2xl"><Ban className="w-5 h-5 inline mr-2" />Do Not Water Unwholesome Seeds</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-6 space-y-4 text-left text-sm sm:text-base">
-              <p className="font-medium">Please refrain from the following:</p>
-              <ul className="space-y-3 ml-4">
-                <li>• <span className="font-bold">Using this community in place of therapy.</span> We are not a substitute for professional mental health care. You are responsible for your health and well-being. Please refer to our resource library or reach out at <span className="font-bold">open-a-support-ticket</span> channel on discord if you would like help from a facilitator. Note that we are laypeople and non-therapists.</li>
-                <li>• <span className="font-bold">NSFW content</span> including harmful sexual material and triggering specifics (ie substances, self-harm behaviors, etc).</li>
-                <li>• <span className="font-bold">Harassment</span> of any kind (verbal, sexual, or psychological).</li>
-                <li>• <span className="font-bold">Discrimination</span> including but not limited to racism, nationalism, anti-immigrant rhetoric, sexism, homophobia, transphobia, xenophobia, fatphobia, antisemitism, ableism, or classism.</li>
-                <li>• <span className="font-bold">Sharing what isn&apos;t yours to share.</span> What is expressed in confidential spaces should not leave them without consent.</li>
-                <li>• <span className="font-bold">Diet culture</span> including moralizing food, giving unsolicited nutrition/exercise advice, pushing restrictive eating rules, discussing numbers (calories, macros, weight), perpetuating weight stigma, or implying that certain body shapes are inherently more valid, healthy, or worthy than others.</li>
-                <li>• <span className="font-bold">Promotion of intoxicants or psychedelics</span> including encouraging their use, giving advice on obtaining or using them, glorifying experiences, or suggesting they&apos;re necessary for insight or healing.</li>
-                <li>• <span className="font-bold">Conspiracy theories, pseudoscientific claims,</span> or esoteric teachings framed as absolute truths.</li>
-                <li>• <span className="font-bold">Forcing beliefs</span> including pressuring others to adopt your religious, spiritual, or atheistic beliefs. Also, actions such as preaching, dismissing others&apos; beliefs, claiming moral or spiritual superiority, or using beliefs to shame or control.</li>
-                <li>• <span className="font-bold">Unsolicited promotion or advertising</span> unless approved by a facilitator.</li>
+          <div className="rhythm-foot">
+            <p className="muted small">
+              Schedules and one-offs live on Discord — pop in for the latest
+              times.
+            </p>
+            <a
+              className="btn btn-outline"
+              href={DISCORD_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              See the schedule on Discord
+              <ArrowRight className="ic" />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* GUIDELINES */}
+      <section id="guidelines" className="sec" data-screen-label="Guidelines">
+        <div className="wrap">
+          <div className="sec-head">
+            <span className="eyebrow">Guidelines &amp; Rules</span>
+            <h2>
+              How we <em>tend</em> the garden.
+            </h2>
+            <p className="lede">
+              By participating in this server and community, you agree to the
+              following — written as a thoughtful letter, not legalese.
+            </p>
+          </div>
+
+          <div className="guidelines-grid">
+            <div className="panel warm">
+              <div className="panel-head">
+                <div className="glyph">
+                  <Sprout className="ic" />
+                </div>
+                <div className="titles">
+                  <span className="kicker">Water these</span>
+                  <h3>Wholesome seeds</h3>
+                </div>
+              </div>
+              <ul className="seed-list">
+                {wholesomeSeeds.map((s) => (
+                  <li key={s.title}>
+                    <Flower2 className="seed-mark ic" />
+                    <div>
+                      <div className="seed-title">{s.title}</div>
+                      <p>{s.body}</p>
+                    </div>
+                  </li>
+                ))}
               </ul>
-            </CardContent>
-          </Card>
+            </div>
 
-          {/* Consequences */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-xl sm:text-2xl"><Scale className="w-5 h-5 inline mr-2" />Consequences</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-6 space-y-3 text-left text-sm sm:text-base">
-              <p>Our approach is firm yet fair:</p>
-              <p>✋ Some violations may result in a gentle reminder or redirect.</p>
-              <p>⚠️ Others may lead to a warning, temporary mute, or removal depending on the severity and impact.</p>
-              <p>🔨 Excessive harmful behavior (ie scamming, soliciting, hate speech, harassment, threatening or violent language) may result in an immediate ban.</p>
-              <p>❓ If you&apos;re unsure whether something is appropriate ➡️ <span className="font-bold">open-a-support-ticket</span> channel on discord</p>
-            </CardContent>
-          </Card>
-
-          {/* Support Section */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-xl sm:text-2xl"><Mail className="w-5 h-5 inline mr-2" />Need Support or Have a Concern?</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-6 space-y-4 text-left text-sm sm:text-base">
-              <p>Please <span className="font-bold">open-a-support-ticket</span> channel on discord if:</p>
-              <ul className="ml-4 space-y-1">
-                <li>• You&apos;re feeling unsafe or overwhelmed</li>
-                <li>• You need accommodations</li>
-                <li>• You&apos;ve witnessed a rule violation</li>
-                <li>• You have feedback or questions</li>
+            <div className="panel cool">
+              <div className="panel-head">
+                <div
+                  className="glyph"
+                  style={{ color: "oklch(0.6 0.07 35)" }}
+                >
+                  <Ban className="ic" />
+                </div>
+                <div className="titles">
+                  <span className="kicker">Please refrain</span>
+                  <h3>Unwholesome seeds</h3>
+                </div>
+              </div>
+              <ul className="seed-list refrain">
+                {unwholesomeSeeds.map((s) => (
+                  <li key={s.title}>
+                    <Ban className="seed-mark ic" />
+                    <div>
+                      <div className="seed-title">{s.title}</div>
+                      <p>{s.body}</p>
+                    </div>
+                  </li>
+                ))}
               </ul>
-              <p className="text-sm text-muted-foreground">
-                🕊️ Submitting a support ticket doesn&apos;t guarantee a specific outcome, but it does ensure your concerns are heard.
-                We approach each situation with care, transparency, and a commitment to community well-being.
-              </p>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
 
-          {/* Thank You Section */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-xl sm:text-2xl"><Bug className="w-5 h-5 inline mr-2" />Thank You For Having Grace</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-6 space-y-3 text-left text-sm sm:text-base">
-              <p>We are all learning. It&apos;s okay to make mistakes. It&apos;s okay to uphold your boundaries with consequences.</p>
-              <p>We are all doing the best we can in the situation we are in with the current understanding, resources, and tools we have.</p>
-              <p className="font-bold">Thank you for your care and willingness to co-create this mindful and insightful community.</p>
-            </CardContent>
-          </Card>
-        </section>
-
-        {/* Events Section */}
-        <section id="events" className="space-y-8">
-          <Image
-            src="/MIVR_MIndful_Insight_Events_Banner_1.0.png"
-            alt="Mindful Insight VR Events Banner"
-            width={1200}
-            height={400}
-            className="w-full h-auto rounded-lg select-none mb-8"
-          />
-          <Card>
-            <CardContent className="space-y-4 text-left text-sm sm:text-base">
-              <p>Our events are warm, safe, and accessible. New members are always welcome. No previous experience is required for any events. Some events move to a private instance once they begin, so be sure to arrive on time!</p>
-              <p>See <span className="font-bold">events</span> channel on discord for the full schedule of events and information.</p>
-
-              <div className="mt-6">
-                <h3 className="font-bold text-base sm:text-lg mb-3">Peer-Led Event Categories</h3>
-                <p className="mb-4">Interested in hosting an event? Community members are welcome to lead casual gatherings, offering a shared space for connection without the need for formal facilitation. Below are two examples of peer-led event formats. For details on becoming a Mindful Insight Representative, see the post below.</p>
-
-                <div className="space-y-4">
-                  <div>
-                    <p className="font-bold"><Music2 className="w-4 h-4 inline mr-1" />Joyful Movement Invitations</p>
-                    <p className="ml-4">Spontaneous invitations to dance, stretch, or move with joy. Anyone can post and join. No need to lead or plan. Just invite folks along with you to whatever joyful movement you are up to!</p>
-                    <p className="ml-4 text-sm text-muted-foreground">➤ Check the <span className="font-bold">joyful-movement-invites</span> channel on discord and pinned message for more info.</p>
-                  </div>
-
-                  <div>
-                    <p className="font-bold"><Circle className="w-4 h-4 inline mr-1" />Dharma Talk Watch Parties</p>
-                    <p className="ml-4">Open a group instance to watch Dharma Talk youtube videos together in VRChat. Hosted by representatives.</p>
-                  </div>
-
-                  <div>
-                    <p className="font-bold"><Palmtree className="w-4 h-4 inline mr-1" />Casual Hang Out</p>
-                    <p className="ml-4">Open a group instance to host a casual hang out together in VRChat. Hosted by representatives.</p>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </section>
-
-        {/* Facilitators Section */}
-        <section id="facilitators" className="space-y-8">
-          <Image
-            src="/MIVR_Facilitators_Banner_1.0.png"
-            alt="Mindful Insight VR Facilitators Banner"
-            width={1200}
-            height={400}
-            className="w-full h-auto rounded-lg select-none mb-8"
-          />
-          <Card>
-            <CardContent className="space-y-4 text-left text-sm sm:text-base">
-              <p>Our facilitators host our core events and run our community. They have shown care, integrity, and a genuine wish to support others. New facilitators are invited to join based on their application and engagement with the community. All current facilitators must unanimously agree to invite new facilitators.</p>
-
-              <p><Sprout className="w-4 h-4 inline mr-1" />If you feel your values align with our community and you are moved to support others, whether through hosting or other skills, you are warmly invited to apply.</p>
-
-              <p>We look for those who help water the wholesome seeds of our community: mindfulness, insight, and joy. We don&apos;t expect perfection, only a sincere commitment to doing your best by this community.</p>
-
-              <p className="font-bold italic">How you are matters more to us than how much you know.</p>
-
-              <p>🌿 Facilitators are here as a source of support and are happy to listen or answer questions.</p>
-
-              <p>📝 Applications are open in <span className="font-bold">facilitator-applications</span> channel on discord</p>
-            </CardContent>
-          </Card>
-        </section>
-
-        {/* Representatives Section */}
-        <section id="representatives" className="space-y-8">
-          <Image
-            src="/MIVR_Representatives_Banner_1.0.png"
-            alt="Mindful Insight VR Representatives Banner"
-            width={1200}
-            height={400}
-            className="w-full h-auto rounded-lg select-none mb-8"
-          />
-          <Card>
-            <CardContent className="space-y-4 text-left text-sm sm:text-base">
-              <p>Representatives are dear friends in our community whose presence and practice reflect a deep commitment to nurturing mindfulness and compassion in themselves and others. Facilitators unanimously decide that these individuals can be trusted to represent Mindful Insight VR.</p>
-
-              <div className="mt-4">
-                <h4 className="font-bold text-sm sm:text-base"><Sprout className="w-4 h-4 inline mr-1" />How to Become a Representative</h4>
-                <p className="mt-2">This role is open to everyone. After spending time at our events, you may be interested in becoming more deeply involved. If you resonate with our practice and wish to support us and represent us in the wider world, we invite you to step forward.</p>
-              </div>
-
-              <div className="mt-4">
-                <h4 className="font-bold text-sm sm:text-base"><Wheat className="w-4 h-4 inline mr-1" />Representative Access</h4>
-                <ul className="mt-2 space-y-1">
-                  <li><Sprout className="w-3 h-3 inline mr-1" />Ability to open Mindful Insight VR group instances in VRChat</li>
-                  <li><Sprout className="w-3 h-3 inline mr-1" />Host certain events such as Dharma Talk Watch Parties and Casual Hang Outs</li>
-                  <li><Sprout className="w-3 h-3 inline mr-1" />A &quot;Representative&quot; role in our discord</li>
-                  <li><Sprout className="w-3 h-3 inline mr-1" />Access to <span className="font-bold">representatives</span> channel on discord</li>
-                </ul>
-              </div>
-
-              <p className="mt-4">If you&apos;d like to learn more or express your interest, kindly open a support ticket in <span className="font-bold">open-a-support-ticket</span> channel on discord</p>
-            </CardContent>
-          </Card>
-        </section>
-
-        {/* Support Us Section */}
-        <section id="support-us" className="space-y-8">
-          <Image
-            src="/MIVR_Please_Support_Us_Banner_1.0.png"
-            alt="Mindful Insight VR Support Us Banner"
-            width={1200}
-            height={400}
-            className="w-full h-auto rounded-lg select-none mb-8"
-          />
-          <Card>
-            <CardContent className="space-y-4 text-left text-sm sm:text-base">
-              <p className="font-bold">If you find value in what we do, please help us grow!</p>
-
-              <p>Would you please join our Mindful Insight VR VRChat Group and invite others to join who might benefit from this community?</p>
-
-              <p>Would you please consider giving our server a boost? 🙌</p>
-
-              <div>
-                <p>Would you please connect with us?</p>
-                <div className="ml-4">
-                  <p>📺 Youtube</p>
-                  <p>📨 mindfulinsightvr@gmail.com</p>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <p><Coffee className="w-4 h-4 inline mr-1" />Would you please consider donating to our Ko-Fi?</p>
-
-                <div className="flex justify-center">
-                  <Button asChild size="lg" className="gap-2">
-                    <Link
-                      href="https://ko-fi.com/mindfulinsightvr"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <SiKofi size={20} />
-                      Support us on Ko-fi
-                    </Link>
-                  </Button>
-                </div>
-
-                <p><Heart className="w-4 h-4 inline mr-1" />Donations help sustain and grow our community by supporting both our facilitators and ongoing improvements. When you contribute, you&apos;re directly supporting the people who offer their time and energy to make this space possible.</p>
-
-                <p className="font-bold">From the bottom of our hearts, thank you for anything you are able to contribute comfortably.</p>
-              </div>
-            </CardContent>
-          </Card>
-        </section>
-
-        {/* Contacts Section */}
-        <section id="contacts" className="space-y-8">
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-xl sm:text-2xl">Contact Us</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-6 space-y-6">
-              <p className="text-sm sm:text-base">Connect with our community through multiple platforms</p>
-
-              <div className="grid gap-4 md:grid-cols-3">
-                <Link
-                  href="https://discord.gg/BZFXSmAesk"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex flex-col items-center space-y-2 p-4 rounded-lg border transition-colors hover:bg-accent hover:text-accent-foreground"
-                >
-                  <FaDiscord size={64} />
-                  <span className="font-bold">Join our Discord</span>
-                  <span className="text-sm text-muted-foreground text-center">Connect with our community</span>
-                </Link>
-
-                <Link
-                  href="https://vrchat.com/home/group/grp_7df82573-ed3d-424b-8c95-e5271559fa4e"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex flex-col items-center space-y-2 p-4 rounded-lg border transition-colors hover:bg-accent hover:text-accent-foreground"
-                >
-                  <SiVrchat size={64} />
-                  <span className="font-bold">VRChat Group</span>
-                  <span className="text-sm text-muted-foreground text-center">Join us in virtual reality</span>
-                </Link>
-
-                <a
-                  href="mailto:mindfulinsightvr@gmail.com"
-                  className="flex flex-col items-center space-y-2 p-4 rounded-lg border transition-colors hover:bg-accent hover:text-accent-foreground"
-                >
-                  <Mail size={64} />
-                  <span className="font-bold">Email Us</span>
-                  <span className="text-sm text-muted-foreground text-center">mindfulinsightvr@gmail.com</span>
-                </a>
-              </div>
-
-              <div className="pt-4">
-                <p className="text-sm text-muted-foreground">
-                  We welcome your questions, feedback, and participation. Choose the platform that works best for you!
+          <div className="guidelines-foot">
+            <div className="consequences">
+              <h4>Consequences are firm yet fair.</h4>
+              <div className="consequences-row">
+                <span className="tier t1">✋ Gentle</span>
+                <p>
+                  Most slips get a quiet reminder or redirect. We&apos;ve all
+                  been there.
                 </p>
               </div>
-            </CardContent>
-          </Card>
-        </section>
-      </div>
-    </div>
+              <div className="consequences-row">
+                <span className="tier t2">⚠ Warning</span>
+                <p>
+                  Repeated or impactful behavior may earn a warning, temporary
+                  mute, or removal — proportional to harm.
+                </p>
+              </div>
+              <div className="consequences-row">
+                <span className="tier t3">🔨 Ban</span>
+                <p>
+                  Scamming, soliciting, hate speech, harassment, threatening or
+                  violent language → immediate ban.
+                </p>
+              </div>
+              <div className="consequences-row">
+                <span className="tier t4">? Unsure</span>
+                <p>
+                  Open <strong>#open-a-support-ticket</strong> on Discord.
+                  We&apos;d rather you ask.
+                </p>
+              </div>
+            </div>
+
+            <aside className="grace">
+              <div className="quotemark">&ldquo;</div>
+              <p>
+                We are all learning. It&apos;s okay to make mistakes. We are
+                all doing the best we can in the situation we are in, with the
+                understanding, resources, and tools we have.
+              </p>
+              <span className="by">— Thank you for having grace</span>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      {/* ROLES */}
+      <section id="roles" className="sec roles" data-screen-label="Stewards">
+        <div className="wrap">
+          <div className="sec-head">
+            <span className="eyebrow">Facilitators &amp; Representatives</span>
+            <h2>
+              The people who <em>hold</em> the space.
+            </h2>
+            <p className="lede">
+              Two ways to step into stewardship. Both rest on the same trust:
+              that you wish, sincerely, to support others.
+            </p>
+          </div>
+
+          <div className="roles-grid">
+            <div className="role">
+              <div className="role-marker">
+                <Leaf className="ic" />
+              </div>
+              <span className="role-eyebrow">
+                Stewardship · Hosts core events
+              </span>
+              <h3>Facilitators</h3>
+              <p>
+                Our facilitators host the core events and run the community.
+                They have shown care, integrity, and a genuine wish to support
+                others.
+              </p>
+              <p className="quiet">
+                New facilitators are invited based on their application and
+                engagement. All current facilitators must unanimously agree to
+                invite someone new.
+              </p>
+              <blockquote className="role-pullquote">
+                &ldquo;How you are matters more to us than how much you
+                know.&rdquo;
+              </blockquote>
+              <p className="quiet">
+                We look for those who help water the wholesome seeds of our
+                community: mindfulness, insight, and joy. We don&apos;t expect
+                perfection — only sincere commitment to doing your best by this
+                community.
+              </p>
+              <div className="role-foot">
+                <Feather className="ic" />
+                <span>
+                  Applications open in{" "}
+                  <strong>#facilitator-applications</strong> on Discord.
+                </span>
+              </div>
+            </div>
+
+            <div className="role">
+              <div className="role-marker">
+                <Wheat className="ic" />
+              </div>
+              <span className="role-eyebrow">
+                Stewardship · Hosts peer events
+              </span>
+              <h3>Representatives</h3>
+              <p>
+                Representatives are dear friends in the community whose presence
+                reflects a deep commitment to nurturing mindfulness and
+                compassion. Facilitators trust them to represent us in the
+                wider world.
+              </p>
+              <p className="quiet">
+                After spending time at our events, if you feel moved to be more
+                deeply involved, you are warmly invited to step forward.
+              </p>
+              <div className="role-foot">
+                <Handshake className="ic" />
+                <span>
+                  Open <strong>#open-a-support-ticket</strong> to express
+                  interest.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SUPPORT */}
+      <section id="support" className="support-wrap" data-screen-label="Support">
+        <div className="wrap support-inner">
+          <span className="eyebrow">Please support us</span>
+          <h2>
+            If you find value in what we do, <em>please help us grow.</em>
+          </h2>
+          <p className="lede">
+            We&apos;re a small community held up by the people who show up — and
+            the people who give a little so others can. Every gentle action
+            helps.
+          </p>
+
+          <div className="support-asks">
+            <div className="ask">
+              <div className="gly">
+                <Users className="ic" />
+              </div>
+              <p>
+                Would you please join our <strong>VRChat Group</strong> and
+                invite others who might benefit?
+              </p>
+            </div>
+            <div className="ask">
+              <div className="gly">
+                <FaDiscord className="ic-fill" />
+              </div>
+              <p>
+                Would you please <strong>give our Discord server a boost</strong>? 🙌
+              </p>
+            </div>
+            <div className="ask">
+              <div className="gly">
+                <Mail className="ic" />
+              </div>
+              <p>
+                Would you please reach out at <strong>{EMAIL}</strong>?
+              </p>
+            </div>
+          </div>
+
+          <div className="support-cta">
+            <a
+              className="btn btn-primary btn-lg"
+              href={KOFI_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Coffee className="ic" />
+              Support us on Ko-fi
+            </a>
+            <p className="muted small">
+              <Heart className="ic ic-sm" /> Donations sustain our facilitators
+              and ongoing improvements.
+            </p>
+          </div>
+
+          <p className="support-thanks">
+            From the bottom of our hearts — thank you for anything you are able
+            to contribute comfortably.
+          </p>
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section id="contact" className="sec" data-screen-label="Contact">
+        <div className="wrap">
+          <div className="sec-head">
+            <span className="eyebrow">Stay in touch</span>
+            <h2>
+              Come <em>say hello.</em>
+            </h2>
+            <p className="lede">
+              Connect on whichever platform fits you. We&apos;ll meet you there.
+            </p>
+          </div>
+
+          <div className="contact-grid contact-grid-2">
+            <a
+              className="contact-tile"
+              href={DISCORD_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaDiscord className="ic-big brand-discord" />
+              <h4>Join our Discord</h4>
+              <p>
+                The heart of the community. Conversations, support tickets, and
+                the event schedule live here.
+              </p>
+              <span className="go">
+                Open Discord <ArrowRight className="ic" />
+              </span>
+            </a>
+            <a
+              className="contact-tile"
+              href={VRCHAT_GROUP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <SiVrchat className="ic-big brand-vrchat" />
+              <h4>VRChat Group</h4>
+              <p>
+                Step into the room. All events happen inside VRChat — desktop,
+                mobile, or any headset works.
+              </p>
+              <span className="go">
+                Join in VR <ArrowRight className="ic" />
+              </span>
+            </a>
+          </div>
+
+          <p
+            className="muted small center"
+            style={{ marginTop: "2rem" }}
+          >
+            We welcome your questions, feedback, and participation. Choose the
+            platform that works best for you.
+          </p>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="ftr">
+        <div className="wrap">
+          <div className="ftr-grid">
+            <div className="ftr-brand">
+              <div className="row">
+                <Image
+                  src="/mivr_icon.png"
+                  alt=""
+                  width={44}
+                  height={44}
+                />
+                <div>
+                  <div
+                    style={{
+                      fontWeight: 800,
+                      fontSize: "1.0625rem",
+                      letterSpacing: "-0.01em",
+                    }}
+                  >
+                    Mindful Insight VR
+                  </div>
+                  <div className="muted small">A sangha community</div>
+                </div>
+              </div>
+              <p>
+                A secular Buddhist community gathering inside VRChat for sits,
+                dharma talks, peer support, and casual hangs. New members
+                always welcome.
+              </p>
+            </div>
+
+            <div>
+              <h5>Community</h5>
+              <ul>
+                <li>
+                  <a href="#rhythm">Practice</a>
+                </li>
+                <li>
+                  <a href="#guidelines">Guidelines</a>
+                </li>
+                <li>
+                  <a href="#roles">Stewards</a>
+                </li>
+                <li>
+                  <a href="#support">Support us</a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h5>Connect</h5>
+              <ul>
+                <li>
+                  <a
+                    href={DISCORD_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Discord
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={VRCHAT_GROUP_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    VRChat Group
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={KOFI_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Ko-fi
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h5>Reach out</h5>
+              <ul>
+                <li>
+                  <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+                </li>
+                <li>
+                  <a href="#contact">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="ftr-bottom">
+            <span>© 2026 Mindful Insight VR.</span>
+            <span className="blessing">
+              May all beings be well, safe, and at ease.
+            </span>
+          </div>
+        </div>
+      </footer>
+    </>
   );
 }

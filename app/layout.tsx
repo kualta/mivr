@@ -1,17 +1,27 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans, Newsreader } from "next/font/google";
 import { Header } from "@/components/header";
 import "./globals.css";
 
-const inter = Inter({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-jakarta",
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  variable: "--font-newsreader",
   weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Mindful Insight VR",
-  description: "A sangha community",
+  title: "Mindful Insight VR · A virtual sangha",
+  description:
+    "A secular Buddhist community where meditation meets heartfelt conversation. Your presence is a gift.",
 };
 
 export default function RootLayout({
@@ -20,23 +30,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${inter.variable} font-inter antialiased`}
-      >
-        <div className="relative flex min-h-screen flex-col">
-          <Header />
-          <main className="flex-1">
-            {children}
-          </main>
-          <footer className="border-t">
-            <div className="container flex h-14 max-w-screen-2xl items-center justify-center">
-              <p className="text-sm text-muted-foreground">
-                © 2025 Mindful Insight VR.
-              </p>
-            </div>
-          </footer>
-        </div>
+    <html lang="en" className={`${jakarta.variable} ${newsreader.variable}`}>
+      <body className="antialiased">
+        <Header />
+        <main>{children}</main>
       </body>
     </html>
   );
